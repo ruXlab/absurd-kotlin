@@ -8,14 +8,44 @@ Kotlin is very powerful. Don't abuse it _(because we don't need another scala an
 Some examples:
 
 
+## Repeat
 
+### Repeat with overloaded operator
+
+```kotlin
+3 * { println("kotlin rocks") }
+```
+
+Output:
+
+```
+kotlin rocks
+kotlin rocks
+kotlin rocks
+```
+
+### Map function on closure
+
+```kotlin
+fun main(args: Array<String>) {
+    println( (3 * { "kotlin #$it"}).joinToString(", "))
+    println( ({ it: Int  -> "wow #$it"} * 3).joinToString(", "))
+}
+```
+
+Output:
+
+```
+kotlin #1, kotlin #2, kotlin #3
+wow #1, wow #2, wow #3
+```
 
 
 
 
 ### ..and most importantly
 
-Remember - we write code not for processor but for our colleagues and businesses.
+*Remember* - we write code not for processor but for our colleagues and businesses.
 Otherwise we could use asm.
 
 -------------------
@@ -24,5 +54,4 @@ Originally published at [ruXlab/absurd-kotlin](https://github.com/ruXlab/absurd-
 
 
 
-
-_* no offence to scala and perl devs, we just found it's uneasy to read that_
+_* no offence to scala and perl devs, some of us have a hard time reading that code`_
