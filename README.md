@@ -3,10 +3,8 @@
 
 
 Kotlin is very powerful. With great power comes great responsibility.
+
 Please don't abuse it, _we don't need another scala and perl*_
-
-
-Some examples:
 
 
 ## Repeat
