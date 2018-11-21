@@ -1,8 +1,9 @@
 
-Kotlin ~bad~ weird code collection
+# Kotlin ~bad~ weird code collection
 
 
-Kotlin is very powerful. Don't abuse it _(because we don't need another scala and perl*)_
+Kotlin is very powerful. With great power comes great responsibility.
+Please don't abuse it, _we don't need another scala and perl*_
 
 
 Some examples:
@@ -53,5 +54,8 @@ Otherwise we could use asm.
 Originally published at [ruXlab/absurd-kotlin](https://github.com/ruXlab/absurd-kotlin), inspired by [twitter thread](https://twitter.com/kotlin/status/1065264275030228993)
 
 
+**Disclaimer**
 
-_* no offence to scala and perl devs, some of us have a hard time reading that code`_
+* Please use tool which helps to resolve daily needs for your company in a way it works for you
+* Don't associate yourself with particular language or technology, you're The Human.
+* _* no offence to scala and perl devs, some of us have a hard time reading that code`_
