@@ -40,6 +40,19 @@ wow #1, wow #2, wow #3
 ```
 
 
+## Abusing kotlin scoping functions
+
+Say, we've got number of processors for different inputs, mappings are finite and no dynamic. 
+
+```kotlin
+fun run(arg: String?) = mapOf("a" to ::f1, "b" to ::f2, "c" to ::f3).apply {
+        arg.let { it?.trim() }
+            .let { this[it] }
+            ?.let { println(it()) }
+    }
+```
+
+How does it feel after quick look on snippet above? It's very easy to get lost while scanning code
 
 
 ### ..and most importantly
