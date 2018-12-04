@@ -42,6 +42,8 @@ wow #1, wow #2, wow #3
 
 ## Abusing kotlin scoping functions
 
+### What is `this`?
+
 Say, we've got number of processors for different inputs, mappings are finite and no dynamic. 
 
 ```kotlin
@@ -53,6 +55,32 @@ fun run(arg: String?) = mapOf("a" to ::f1, "b" to ::f2, "c" to ::f3).apply {
 ```
 
 How does it feel after quick look on snippet above? It's very easy to get lost while scanning code
+
+## Operator overloading abuse
+
+We have learnt from c++ that operators overloading should be used with a great care.
+Misuse might confuse your fellow colleague and even yourself  
+
+### Invoke on object
+
+Object are meant to be [singleton-like object](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations) or 
+used as a place for factory methods.
+
+
+```kotlin
+object Sum {
+    operator fun invoke(a: Int, b: Int) = a + b
+}
+
+fun main(args: Array<String>) {
+    println(Sum(40, 2))
+}
+```
+It is possible to use object with overloaded invoke operator as a function, but
+why would someone use it instead of higher order functions? 
+  
+
+
 
 
 ### ..and most importantly
