@@ -80,11 +80,45 @@ It is possible to use object with overloaded invoke operator as a function, but
 why would someone use it instead of higher order functions? 
   
 
+### Invoke on self-constructing interface
 
+Why would you use interfaces as a classes, simulating constructor by using `invoke`?
 
+```kotlin
+interface Person {
+    val firstName: String
+    val lastName: String
+
+    companion object {
+        operator fun invoke(firstName: String, lastName: String): Person {
+            return object : Person {
+                override val firstName: String = firstName
+                override val lastName: String = lastName
+                override fun toString(): String = "$firstName $lastName"
+            }
+        }
+        val NONAME = this("NO NAME", "")
+    }
+}
+
+fun main(args: Array<String>) {
+    println(Person("Alex", "Popov"))
+    println(Person.NONAME)
+}
+
+```
+
+Output:
+
+```
+Alex Popov
+NO NAME
+```
+
+It's kinda cool to make interface behave as a object or function but what that point?
 
 ### ..and most importantly
-
+        
 *Remember* - we write code not for processor but for our colleagues and businesses.
 Otherwise we could use asm.
 
