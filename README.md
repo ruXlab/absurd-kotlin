@@ -117,6 +117,38 @@ NO NAME
 
 It's kinda cool to make interface behave as a object or function but what that point?
 
+## Extension functions
+
+### Extension function instead of member
+
+While code looks _almost_ the same what is the point of breaking classic encapsulation?
+Extension function can serve a great deal when it comes to foreign code extension
+or to tame your own for clarity  
+
+```kotlin
+package extentionfunctions
+
+class Mumbler(var counter: Int = 0)
+private fun Mumbler.incAndSay(sound: String) {
+    counter++
+    println(sound)
+}
+fun Mumbler.meow() = incAndSay("meow")
+fun Mumbler.bark() = incAndSay("wuff")
+fun Mumbler.stats() = println("Mumbled $counter times")
+
+fun main(args: Array<String>) {
+    val mumbler = Mumbler()
+    mumbler.stats()
+    mumbler.bark()
+    mumbler.meow()
+    mumbler.stats()
+}
+```
+
+If there is no good reason to do so - just put those properties and functions 
+inside the class, as it expected in OOP
+
 ### ..and most importantly
         
 *Remember* - we write code not for processor but for our colleagues and businesses.
